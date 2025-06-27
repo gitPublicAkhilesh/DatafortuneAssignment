@@ -1,0 +1,13 @@
+<div class="login-container">
+  <img src="assets/logo.png" alt="Logo" class="logo" />
+  <h2>IntraMed MEETINGS</h2>
+
+  <label for="password">Please enter the case sensitive password from your official invitation.</label>
+  <input type="password" [(ngModel)]="password" placeholder="Password" id="password" />
+
+  <button (click)="login()">Login</button>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+
+  <footer>© Copyright 2015</footer>
+</div>

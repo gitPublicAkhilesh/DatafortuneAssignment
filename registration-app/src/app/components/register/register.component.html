@@ -1,0 +1,36 @@
+<div class="register-container">
+  <img src="assets/logo.png" alt="Logo" class="logo" />
+  <h2>IntraMed MEETINGS</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <label>First Name*</label>
+    <input formControlName="firstName" />
+    <div class="error" *ngIf="submitted && registerForm.controls['firstName'].errors">First name is required.</div>
+
+    <label>Last Name*</label>
+    <input formControlName="lastName" />
+    <div class="error" *ngIf="submitted && registerForm.controls['lastName'].errors">Last name is required.</div>
+
+    <label>State*</label>
+    <select formControlName="state">
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+    <div class="error" *ngIf="submitted && registerForm.controls['state'].errors">State is required.</div>
+
+    <label>Email*</label>
+    <input formControlName="email" type="email" />
+    <div class="error" *ngIf="submitted && registerForm.controls['email'].errors">Valid email is required.</div>
+
+    <label>Confirm Email*</label>
+    <input formControlName="confirmEmail" type="email" />
+    <div class="error" *ngIf="submitted && registerForm.errors?.['emailMismatch']">Emails do not match.</div>
+
+    <label class="newsletter">
+        Subscribe to Newsletter
+      <input type="checkbox" formControlName="newsletter" />
+    </label>
+
+    <button type="submit">Continue</button>
+  </form>
+</div>
