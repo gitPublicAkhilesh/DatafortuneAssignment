@@ -8,13 +8,17 @@ import { RegisterComponent } from './components/register/register.component';
 import { CompleteComponent } from './components/complete/complete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormProgressBarComponent } from './shared/form-progress-bar/form-progress-bar.component';
+import { LocalizePipe } from './shared/localize.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    CompleteComponent
+    CompleteComponent,
+    FormProgressBarComponent,
+    LocalizePipe
   ],
   imports: [
     BrowserModule,

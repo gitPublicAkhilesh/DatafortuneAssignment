@@ -1,13 +1,40 @@
-<div class="login-container">
-  <img src="assets/logo.png" alt="Logo" class="logo" />
-  <h2>IntraMed MEETINGS</h2>
+<!-- Section Header -->
+<div class="section-header">
+  {{ 'login' | localize }}
+</div>
 
-  <label for="password">Please enter the case sensitive password from your official invitation.</label>
-  <input type="password" [(ngModel)]="password" placeholder="Password" id="password" />
+<!-- Login Form Container -->
+<div class="form-box">
+  <form (ngSubmit)="login()">
 
-  <button (click)="login()">Login</button>
+    <!-- Instruction Text -->
+    <label class="instruction-label">
+      {{ 'loginInstruction' | localize }}
+    </label>
 
-  <div class="error" *ngIf="error">{{ error }}</div>
+    <!-- Password Label (Above input) -->
+    <label for="password" class="form-label">
+      {{ 'password' | localize }}*
+    </label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="password"
+      name="password"
+      required
+      [ngClass]="{ 'input-invalid': error }"
+      placeholder="{{ 'password' | localize }}"
+    />
 
-  <footer>© Copyright 2015</footer>
+    <!-- Error -->
+    <div class="error" *ngIf="error">{{ error }}</div>
+
+    <!-- Button -->
+    <div class="button-wrapper">
+      <button type="submit" class="btn-submit">
+        {{ 'login' | localize }}
+      </button>
+    </div>
+
+  </form>
 </div>

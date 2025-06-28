@@ -1,8 +1,15 @@
+<!-- Section Header -->
+<div class="section-header">
+  {{ 'complete' | localize }}
+</div>
+
+<!-- Progress Bar -->
+<app-form-progress-bar [currentStep]="3"></app-form-progress-bar>
+
+<!-- Confirmation Message -->
 <div class="complete-container">
-  <img src="assets/logo.png" alt="Logo" class="logo" />
-  <h2>IntraMed MEETINGS</h2>
   <div class="message-box">
-    <p><strong>Thank you for registering!</strong></p>
-    <p>You should receive a confirmation email momentarily containing additional details.</p>
+    <p><strong>{{ 'thankYou' | localize }}</strong></p>
+    <p>{{ 'confirmationMessage' | localize }}</p>
   </div>
 </div>

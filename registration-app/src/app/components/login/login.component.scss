@@ -53,3 +53,55 @@
     color: var(--dark-grey);
   }
 }
+
+
+
+.input-invalid {
+  border: 1px solid #a93a44;
+  background-color: #ffe8e8;
+}
+
+.form-box {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #555555;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.input-invalid {
+  border: 1px solid #a93a44 !important;
+  background-color: #ffe8e8 !important;
+}
+
+.error {
+  color: #a93a44;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.instruction-label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 15px;
+  color: #555555;
+}

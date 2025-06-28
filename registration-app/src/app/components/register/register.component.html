@@ -1,36 +1,78 @@
+<!-- Section Header -->
+<div class="section-header">
+  {{ 'contactInformation' | localize }}
+</div>
+
+<!-- Progress Bar -->
+<app-form-progress-bar [currentStep]="2"></app-form-progress-bar>
+
+<!-- Register Form Container -->
 <div class="register-container">
-  <img src="assets/logo.png" alt="Logo" class="logo" />
-  <h2>IntraMed MEETINGS</h2>
+  <div class="form-box">
 
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <p class="form-instruction">
+      {{ 'formInstruction' | localize }}
+    </p>
 
-    <label>First Name*</label>
-    <input formControlName="firstName" />
-    <div class="error" *ngIf="submitted && registerForm.controls['firstName'].errors">First name is required.</div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-    <label>Last Name*</label>
-    <input formControlName="lastName" />
-    <div class="error" *ngIf="submitted && registerForm.controls['lastName'].errors">Last name is required.</div>
+      <!-- First Name -->
+      <label [ngClass]="{ 'label-invalid': submitted && registerForm.controls['firstName'].invalid }">
+        {{ 'firstName' | localize }}: *
+      </label>
+      <input formControlName="firstName"
+             [ngClass]="{ 'input-invalid': submitted && registerForm.controls['firstName'].invalid }" />
 
-    <label>State*</label>
-    <select formControlName="state">
-      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
-    </select>
-    <div class="error" *ngIf="submitted && registerForm.controls['state'].errors">State is required.</div>
+      <!-- Last Name -->
+      <label [ngClass]="{ 'label-invalid': submitted && registerForm.controls['lastName'].invalid }">
+        {{ 'lastName' | localize }}: *
+      </label>
+      <input formControlName="lastName"
+             [ngClass]="{ 'input-invalid': submitted && registerForm.controls['lastName'].invalid }" />
 
-    <label>Email*</label>
-    <input formControlName="email" type="email" />
-    <div class="error" *ngIf="submitted && registerForm.controls['email'].errors">Valid email is required.</div>
+      <!-- State -->
+      <label [ngClass]="{ 'label-invalid': submitted && registerForm.controls['state'].invalid }">
+        {{ 'state' | localize }}: *
+      </label>
+      <select formControlName="state"
+              [ngClass]="{ 'input-invalid': submitted && registerForm.controls['state'].invalid }">
+        <option value="">{{ 'selectState' | localize }}</option>
+        <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+      </select>
 
-    <label>Confirm Email*</label>
-    <input formControlName="confirmEmail" type="email" />
-    <div class="error" *ngIf="submitted && registerForm.errors?.['emailMismatch']">Emails do not match.</div>
+      <!-- Email Instruction -->
+      <p class="email-instruction">
+        {{ 'emailInstruction1' | localize }} <br />
+        {{ 'emailInstruction2' | localize }}
+      </p>
 
-    <label class="newsletter">
-        Subscribe to Newsletter
-      <input type="checkbox" formControlName="newsletter" />
-    </label>
+      <!-- Email -->
+      <label [ngClass]="{ 'label-invalid': submitted && registerForm.controls['email'].invalid }">
+        {{ 'email' | localize }}: *
+      </label>
+      <input formControlName="email" type="email"
+             [ngClass]="{ 'input-invalid': submitted && registerForm.controls['email'].invalid }" />
 
-    <button type="submit">Continue</button>
-  </form>
+      <!-- Confirm Email -->
+      <label [ngClass]="{ 'label-invalid': submitted && (registerForm.controls['confirmEmail'].invalid || registerForm.errors?.['emailMismatch']) }">
+        {{ 'confirmEmail' | localize }}: *
+      </label>
+      <input formControlName="confirmEmail" type="email"
+             [ngClass]="{ 'input-invalid': submitted && (registerForm.controls['confirmEmail'].invalid || registerForm.errors?.['emailMismatch']) }" />
+
+      <!-- Checkbox -->
+      <div class="form-checkbox">
+        <input type="checkbox" formControlName="newsletter" id="newsletter" />
+        <label for="newsletter">{{ 'subscribe' | localize }}</label>
+      </div>
+
+      <!-- Continue Button -->
+      <div class="button-wrapper">
+        <button type="submit" class="btn-submit">
+          {{ 'continue' | localize }}
+        </button>
+      </div>
+
+    </form>
+  </div>
 </div>
